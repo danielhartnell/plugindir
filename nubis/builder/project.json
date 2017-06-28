@@ -4,7 +4,7 @@
       "amazon-ebs-ubuntu"
     ],
     "project_description": "The Mozilla plugin directory website",
-    "project_name": "appsvcs-plugin",
+    "project_name": "plugin",
     "project_version": "v1.5.0_{{env `GIT_COMMIT_SHA`}}",
     "source_ami_project_version": "v1.5.0"
   }
