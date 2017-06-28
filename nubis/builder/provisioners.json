@@ -2,8 +2,17 @@
 "provisioners": [
   {
     "type": "shell",
-    "inline": ["true"],
-    "order": "11"
+    "inline": [
+      "sudo mkdir -p -m 755 /var/www/plugin",
+      "sudo chown ubuntu:ubuntu /var/www/plugin"
+    ],
+    "order": "1"
+  },
+  {
+    "type": "file",
+    "source": "./",
+    "destination": "/var/www/plugin",
+    "order": "2"
   }
 ]
 }
