@@ -3,7 +3,10 @@ class { 'nubis_apache':
 
 # Add modules
 class { 'apache::mod::rewrite': }
-class { 'apache::mod::php': }
+
+class { 'apache::mod::php':
+  mpm_module => 'prefork'
+}
 
 apache::vhost { $project_name:
     port               => 80,
