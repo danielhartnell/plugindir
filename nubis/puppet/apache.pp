@@ -5,7 +5,7 @@ class { 'nubis_apache':
 class { 'apache::mod::rewrite': }
 
 class { 'apache::mod::php':
-  mpm_module => 'prefork'
+  mpm_module_type => 'prefork'
 }
 
 apache::vhost { $project_name:
