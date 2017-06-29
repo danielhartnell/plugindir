@@ -24,11 +24,6 @@ apache::vhost { $project_name:
 
     # Don't set default expiry on anything
     ExpiresActive Off
-
-    # Proxy to nodejs ( keep retrying on backend failures )
-    ProxyPass / http://localhost:9000/ retry=0
-    ProxyPassReverse / http://localhost:9000/
-
 ",
     headers            => [
       # Nubis headers
