@@ -24,6 +24,12 @@ apache::vhost { $project_name:
 
     # Don't set default expiry on anything
     ExpiresActive Off
+
+    <Directory /var/www/plugin/htdocs/>
+      AllowOverride all
+      Order allow,deny
+      Allow from all
+    </Directory>
 ",
     headers            => [
       # Nubis headers
@@ -46,3 +52,14 @@ apache::vhost { $project_name:
     ]
 }
 
+  <VirtualHost *:80>
+      ServerName dev.plugindir.mozilla.org
+      DocumentRoot {plugindir path}/htdocs/
+      ErrorLog {plugindir path}/logs/error_log
+      TransferLog {plugindir path}/logs/access_log
+      <Directory {plugindir path}/htdocs/>
+          AllowOverride all
+          Order allow,deny
+          Allow from all
+      </Directory>
+  </VirtualHost>
