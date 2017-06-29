@@ -2,6 +2,11 @@ class { 'nubis_apache':
   mpm_module_type => 'prefork'
 }
 
+include nubis_configuration
+nubis::configuration { $project_name:
+  format =>  'php',
+}
+
 # Add modules
 class { 'apache::mod::rewrite': }
 class { 'apache::mod::php': }
