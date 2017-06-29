@@ -9,7 +9,7 @@ class { 'apache::mod::php': }
 apache::vhost { $project_name:
     port               => 80,
     default_vhost      => true,
-    docroot            => "/var/www/$project_name",
+    docroot            => "/var/www/$project_name/htdocs",
     docroot_owner      => 'root',
     docroot_group      => 'root',
     block              => ['scm'],
