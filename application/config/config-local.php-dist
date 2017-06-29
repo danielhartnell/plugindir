@@ -1,4 +1,7 @@
 <?php
+
+$nubis_config = require('/etc/nubis-config/plugin.php')
+
 $config['core.needs_installation'] = false;
 $config['core.site_domain'] = 'dev.plugindir.mozilla.org';
 $config['core.log_threshold'] = 0;
