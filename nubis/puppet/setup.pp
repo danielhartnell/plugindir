@@ -1,13 +1,21 @@
-# Setup symlinks to meet install requirements
-# Todo:
-# Add some logic to provide the prod / stage index files
-
-file { '/var/www/plugin/htdocs/index.php':
-  ensure => link,
-  target => '/var/www/plugin/htdocs/index.php-prod-dist'
+file { '/var/www/plugin/htdocs/.htaccess':
+  ensure => present,
+  source => 'puppet:///nubis/files/htaccess-dist'
 }
 
-file { '/var/www/plugin/htdocs/htaccess-dist':
-  ensure => link,
-  target => '/var/www/plugin/htdocs/.htaccess'
+file { '/var/www/plugin/htdocs/index.php':
+  ensure => present,
+  source => 'puppet:///nubis/files/index.php-prod-dist'
+}
+
+file { '/var/www/plugin/application/logs':
+  ensure => 'directory',
+}
+
+file { '/var/www/plugin/application/cache/':
+  ensure => 'directory',
+}
+
+file { '/var/www/plugin/application/cache/twig':
+  ensure => 'directory',
 }
