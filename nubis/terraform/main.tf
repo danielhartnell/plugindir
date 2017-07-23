@@ -9,8 +9,8 @@ module "worker" {
   elb               = "${module.load_balancer.name}"
   ssh_key_file      = "${var.ssh_key_file}"
   ssh_key_name      = "${var.ssh_key_name}"
-  nubis_sudo_groups = "${var.nubis_sudo_groups}"
-  nubis_user_groups = "${var.nubis_user_groups}"
+  nubis_sudo_groups = "nubis_global_admins,team_webops"
+  nubis_user_groups = "nubis_global_admins,team_webops"
 }
 
 module "load_balancer" {
