@@ -1,0 +1,8 @@
+[template]
+src = "plugin-config-local.tmpl"
+dest = "/var/www/plugins/application/config/config-local.php"
+prefix = "/%%PROJECT%%-%%ENVIRONMENT%%/%%ENVIRONMENT%%"
+
+keys = [
+    "/application-config-local"
+]

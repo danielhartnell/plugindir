@@ -1,0 +1,8 @@
+[template]
+src = "config-local.tmpl"
+dest = "/etc/nubis-config/%%PROJECT%%.php"
+prefix = "/%%PROJECT%%-%%ENVIRONMENT%%/%%ENVIRONMENT%%"
+
+keys = [
+    "/config"
+]
