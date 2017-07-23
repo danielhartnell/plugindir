@@ -2,8 +2,13 @@ class { 'nubis_apache':
   mpm_module_type => 'prefork'
 }
 
+# Run this on build?
+# php htdocs/index.php util/import plugins-info/*json
+# php htdocs/index.php util/createlogin admin lorchard@mozilla.com admin
+# utils/* does not exist - does this actually work? Some sort of php imported thing?
+
 include nubis_configuration
-nubis::configuration { $project_name:
+nubis::configuration { "${project_name}":
   format =>  'php',
 }
 
@@ -11,10 +16,10 @@ nubis::configuration { $project_name:
 class { 'apache::mod::rewrite': }
 class { 'apache::mod::php': }
 
-apache::vhost { $project_name:
+apache::vhost { "${project_name}":
     port               => 80,
     default_vhost      => true,
-    docroot            => "/var/www/$project_name/htdocs",
+    docroot            => "/var/www/${project_name}/htdocs",
     docroot_owner      => 'root',
     docroot_group      => 'root',
     block              => ['scm'],
@@ -39,7 +44,7 @@ apache::vhost { $project_name:
     headers            => [
       # Nubis headers
       "set X-Nubis-Version ${project_version}",
-      "set X-Nubis-Project ${project_name}",
+      "set X-Nubis-Project ${{project_name}}",
       "set X-Nubis-Build   ${packer_build_name}",
 
       # Security Headers
