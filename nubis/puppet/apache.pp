@@ -44,7 +44,7 @@ apache::vhost { "${project_name}":
     headers            => [
       # Nubis headers
       "set X-Nubis-Version ${project_version}",
-      "set X-Nubis-Project ${{project_name}}",
+      "set X-Nubis-Project ${project_name}",
       "set X-Nubis-Build   ${packer_build_name}",
 
       # Security Headers
